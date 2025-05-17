@@ -1,0 +1,943 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+
+/* Layout */
+:root {
+  --background: #e9e6e6d8;
+  --text-color: #000000;
+  --primary: #1aac83;
+  --card-bg: #f9f9f9;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --form-bg: #ffffff;
+  --form-shadow: rgba(0, 0, 0, 0.15);
+  --label-color: #333;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-color);
+  margin: 0;
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  background: var(--background);
+  box-shadow: 0 2px 5px var(--card-shadow);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.left .logo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--primary);
+  color: #000000;
+}
+
+.navbar-toggle {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.navbar-toggle:focus {
+  outline: none;
+}
+
+.navbar-toggle .bar {
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-color); /* Use the same variable */
+  margin: 3px 0;
+}
+
+.navbar-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  padding: 1rem;
+}
+
+.nav-link-mobile {
+  list-style: none;
+  display: block;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.nav-link-mobile:hover {
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 4px;
+}
+
+.darkmode-toggle {
+  display: flex;
+  align-items: center;
+}
+
+html.dark-mode {
+  --background: #000000;
+  --text-color: #f1e4e4;
+  --primary: #e46038;
+  --card-bg: #121212;
+  --card-shadow: rgba(255, 255, 255, 0.1);
+  --label-color: #ddd;
+  --form-bg: #121212;
+  --form-shadow: rgba(255, 255, 255, 0.1);
+}
+
+.profile-dropdown {
+  position: relative;
+  margin-left: 1rem;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: var(--form-bg);
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  border-radius: 6px;
+  width: 180px;
+  padding: 0.5rem 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+}
+.dropdown-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 7px 17px;
+  color: var(--text-color);
+  text-decoration: solid;
+  font-size: 0.82rem;
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 4px;
+}
+.profile-dropdown.open .dropdown-menu {
+  display: flex;
+}
+.profile-dropdown-mobile {
+  margin-top: 15px;
+}
+
+.profile-btn-mobile {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+
+.profile-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.dropdown-menu.open {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 4px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #555;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+  transition: transform 0.3s ease;
+}
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spinner {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Main container */
+.home {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--text-color);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
+/* Flex layout for form and list */
+.container-flex {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: stretch;
+  background: var(--background);
+  padding-bottom: 40px;
+  flex-wrap: wrap; /* Allow elements to wrap to the next line */
+}
+
+/* Form card */
+.create {
+  flex: 1 1 30%;
+  min-width: 300px;
+  padding: 25px;
+  background: var(--form-bg);
+  border-radius: 0px;
+  box-shadow: 0 6px 20px var(--form-shadow);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  position: relative;
+  z-index: 10;
+  max-height: 106vh;
+  overflow-y: auto;
+}
+
+.create h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-align: center;
+}
+
+.create input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #dddcdd;
+  box-sizing: border-box;
+}
+
+.create button {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.create .error {
+  margin-top: 10px;
+  color: red;
+  font-size: 0.9rem;
+}
+
+.create .form-group {
+  margin-bottom: 20px;
+}
+
+/* Order card */
+.order-details {
+  flex: 1 1 35%;
+  min-width: 300px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px var(--card-shadow);
+  padding: 17px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  position: relative;
+  gap: 10px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+}
+.order-details:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+html.dark-mode .order-details:hover {
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
+}
+
+.order-details h4 {
+  margin-top: 0 0 10px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.order-details p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.order_delete {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #ee4956;
+  color: white;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order_delete:hover {
+  background-color: #d62828;
+  transform: translateY(-1px);
+}
+
+.order_delete:active {
+  transform: scale(0.98);
+}
+
+.order_update {
+  position: absolute;
+  top: 12px; /* Adjust the top position */
+  right: 55px; /* Increase the space between the delete and update buttons */
+  background-color: #3fe34b;
+  color: white;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order_update:hover {
+  background-color: #27a83f;
+  transform: translateY(-1px);
+}
+
+.order_update:active {
+  transform: scale(0.98);
+}
+.order-actions button {
+  margin-right: 12px; /* Increase the right margin of the update button */
+}
+
+.confirm-box {
+  background-color: #fce8e6;
+  padding: 10px 14px;
+  margin-top: 10px;
+  border: 1px solid #f5c2c7;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Confirm Modal Overlay */
+.confirm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(5px); /* Adds a slight blur effect to the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures it appears above other content */
+}
+
+/* Confirm Modal */
+.confirm-modal {
+  background: var(
+    --form-bg,
+    #fff
+  ); /* Default light background, or form background for dark mode */
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+  padding: 30px 25px;
+  text-align: center;
+  position: relative;
+  z-index: 1001;
+}
+
+.confirm-modal p {
+  font-size: 1.1rem;
+  color: var(--text-color, #333); /* Text color based on the theme */
+  margin-bottom: 20px;
+}
+
+.confirm-yes,
+.confirm-no {
+  width: 45%;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px;
+}
+
+.confirm-yes {
+  background-color: #e63946; /* Red for destructive Yes */
+  color: white;
+}
+
+.confirm-no {
+  background-color: #6c757d; /* Neutral grey for No */
+  color: white;
+}
+
+.confirm-yes:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+.confirm-no:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+}
+
+.confirm-yes:active,
+.confirm-no:active {
+  transform: scale(0.98);
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-color, #333); /* Match the close button to the text color */
+  cursor: pointer;
+  z-index: 1002;
+}
+.modal-close:hover {
+  color: var(--primary, #28a745); /* Highlight color on hover */
+}
+
+.readonly-input {
+  background-color: #e0e0e0 !important;
+  color: #b4b2b2;
+  cursor: not-allowed;
+}
+.custom-select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #dddcdd;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.modal {
+  background: var(--card-bg, #fff);
+  color: var(--text-color, #000);
+  border-radius: 10px;
+  box-shadow: 0 8px 30px var(--card-shadow, rgba(0, 0, 0, 0.2));
+  max-width: 430px;
+  width: 90%;
+  padding: 0;
+  text-align: -webkit-auto;
+  position: relative;
+}
+.modal p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: var(--text-color, #333);
+}
+.modal button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.form-button {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+.form-button button {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Primary (submit) button */
+.form-button button[type="submit"] {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Cancel button */
+.form-button .cancel-button {
+  background-color: #6c758b;
+  color: white;
+}
+
+/* Optional hover effects */
+.form-button button:hover {
+  opacity: 0.9;
+}
+
+/* invoice list */
+.invoice-container {
+  flex: 1 1 30%;
+  min-width: 280px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 106vh;
+  overflow-y: auto;
+}
+.invoice-table-wrapper {
+  overflow-y: auto;
+  max-height: 50vh; /* Adjust as needed */
+}
+.invoice-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.invoice-header p {
+  font-size: 0.9rem;
+  margin: 4px 0;
+  color: var(--text-color);
+}
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.invoice-table th,
+.invoice-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+.invoice-table th {
+  background-color: transparent;
+  color: var(--primary);
+  font-weight: 600;
+}
+.invoice-table td {
+  background-color: var(--card-bg); /* Darker background for cells */
+  color: var(--text-color); /* Lighter text for dark mode */
+}
+.invoice-total {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary);
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+.create,
+.order-details,
+.invoice-container {
+  flex: 1 1 30%; /* This ensures each takes 30% width */
+  min-width: 280px; /* Prevents the elements from shrinking too small */
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
+
+/* Animation for "No orders" */
+.no-orders-message {
+  text-align: center;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px dashed #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Start hidden */
+  animation: fadeIn 2s forwards; /* Fade-in animation */
+  width: 90%;
+  padding: 0.5rem;
+}
+.no-orders-message svg {
+  margin-bottom: 15px;
+  color: #ff6347; /* Icon color */
+}
+.no-orders-message p {
+  font-size: 1.2rem;
+  color: #555;
+  font-weight: 600;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for "No invoice" */
+.no-invoice-message {
+  text-align: center;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px dashed #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0; /* Start hidden */
+  animation: bounceIn 2s ease-in-out forwards; /* Bounce-in animation */
+  width: 80%;
+  padding: 0.5rem;
+}
+.no-invoice-message svg {
+  margin-bottom: 15px;
+  color: #4caf50; /* Green color for the icon */
+}
+.no-invoice-message p {
+  font-size: 1.2rem;
+  color: #555;
+  font-weight: 600;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  70% {
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect for both messages */
+.no-orders-message:hover,
+.no-invoice-message:hover {
+  background-color: #f1f1f1;
+  border-color: #999;
+  cursor: pointer;
+}
+.no-orders-message p,
+.no-invoice-message p {
+  color: #333;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .container-flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .navbar-menu {
+    display: none;
+  }
+  .navbar-toggle {
+    display: flex;
+  }
+  .create,
+  .order-details,
+  .invoice-container {
+    flex: 1 1 100%; /* Each element takes full width */
+    min-width: 100%; /* Ensure full-width on small screens */
+    padding: 15px; /* Reduced padding on smaller screens */
+  }
+  .right {
+    display: none;
+  }
+  .profile-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .dropdown-menu a {
+    font-size: 0.75rem;
+  }
+  .nav-link:focus,
+  .order_delete:focus,
+  .order_update:focus {
+    outline: 2px dashed var(--primary);
+    outline-offset: 3px;
+  }
+  .navbar-mobile.active {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute; /* So it overlays instead of pushing content */
+    top: 60px; /* Adjust to match height of navbar */
+    right: 0; /* Position it to the right side */
+    width: 250px; /* Make it narrower */
+    background-color: var(--background-color, #fff); /* Light fallback */
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Ensure it's on top of other content */
+    border-radius: 8px; /* Optional for rounded corners */
+    transform: translateY(10px); /* To start slightly below */
+    opacity: 0; /* Start as invisible */
+    pointer-events: none; /* Disable interactions initially */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  }
+  /* Dark Mode Specific for Mobile Menu */
+  .dark-mode .navbar-mobile.active {
+    background-color: #444444; /* Darker background in dark mode */
+  }
+  .dark-mode .nav-link-mobile {
+    color: #ffffff; /* Lighter text color for links */
+  }
+  .dark-mode .nav-link-mobile:hover {
+    background-color: var(--primary); /* Hover effect color remains same */
+    color: #ffffff; /* Ensure text remains visible */
+  }
+
+  /* When active, set opacity to 1 and enable pointer events */
+  .navbar-mobile.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0); /* Bring it into place */
+  }
+}
+
+@media (max-width: 480px) {
+  .create,
+  .order-details {
+    padding: 12px; /* Less padding for smaller mobile screens */
+  }
+  .create h2 {
+    font-size: 1.4rem; /* Adjust the font size further */
+  }
+  .create input,
+  .create button,
+  .order_delete,
+  .order_update,
+  .confirm-yes,
+  .confirm-no {
+    padding: 10px; /* Reduce padding in inputs and buttons */
+  }
+}
